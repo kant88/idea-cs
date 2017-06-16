@@ -8,7 +8,7 @@
     </div>
     <div class="text-left" class="row">
         <form>
-        <label class="col-offset-2-md-4 control-label">クラウドワークス上の名前(必須)</label>
+        <label class="col-offset-2-md-4 control-label">クラウドワークスでの表示名(必須)</label>
         <input type="text" class="col-md-3-offset-2" class="form-control">
         </form>
     </div>
@@ -23,6 +23,8 @@
     </div>
     <br>
     <div class="text-center">
+        {!! link_to_route('ideas.create', '新規メッセージの投稿') !!}
+
         <button type="button" class="btn btn-primary">回答用のページへ</button>
     </div>
 @endsection
