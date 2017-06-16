@@ -23,7 +23,7 @@
     </div>
     <br>
     <div class="text-center">
-        {!! link_to_route('ideas.create', '新規メッセージの投稿') !!}
+        {!! link_to_route('ideas.create', '本ページへ進む', ) !!}
 
         <!--<button type="button" class="btn btn-primary">回答用のページへ</button>-->
     </div>
