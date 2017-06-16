@@ -23,8 +23,8 @@
     </div>
     <br>
     <div class="text-center">
-        {!! link_to_route('ideas.create', '本ページへ進む', ) !!}
+        {!! link_to_route('ideas.create', '回答用のページへ') !!}
 
-        <!--<button type="button" class="btn btn-primary">回答用のページへ</button>-->
+        <button type="button" class="btn btn-primary">回答用のページへ</button>
     </div>
 @endsection
