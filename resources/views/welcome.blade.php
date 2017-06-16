@@ -25,6 +25,6 @@
     <div class="text-center">
         {!! link_to_route('ideas.create', '新規メッセージの投稿') !!}
 
-        <button type="button" class="btn btn-primary">回答用のページへ</button>
+        <!--<button type="button" class="btn btn-primary">回答用のページへ</button>-->
     </div>
 @endsection
