@@ -6,7 +6,7 @@
             <h1>Idea-CS</h1>
         </div>
     </div>
-    <div class="text-left" class="row">
+    <div class="text-center" class="row">
         <form>
         <label class="col-offset-2-md-4 control-label">クラウドワークスでの表示名(必須)</label>
         <input type="text" class="col-md-3-offset-2" class="form-control">
@@ -23,8 +23,7 @@
     </div>
     <br>
     <div class="text-center">
-        {!! link_to_route('ideas.create', '回答用のページへ') !!}
+        {!! link_to_route('ideas.create', 'アイデア投稿用のページへ', null,  ['class'=>"btn btn-primary"]) !!}
 
-        <button type="button" class="btn btn-primary">回答用のページへ</button>
     </div>
 @endsection
