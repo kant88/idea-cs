@@ -28,9 +28,11 @@ class WelcomeController extends Controller
     
      public function confirmName(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|',
+        if(!(Session::has('name'))){
+            $this->validate($request, [
+               'name' => 'required',
         ]);
+        }
         
         //入力をセッションに保存する。
         if($request->has('name')){
@@ -71,6 +73,7 @@ class WelcomeController extends Controller
     */
     public function confirmIdea(Request $request) 
     {
+        
         if($request->has('problem') && $request->has('content')){
             $problem = $request->problem;
             $content = $request->content;
