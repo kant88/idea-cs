@@ -11,7 +11,7 @@
     　　      {!! Form::textarea('problem', $idea->problem, ['class' => 'form-control', 'rows' => 5, 'placeholder'=>"食に関してあなたが感じる課題をご記入ください。"]) !!}
             </div>
             <div class="form-group">
-        　　{!! Form::label('content', 'アイデア:') !!}
+            {!! Form::label('content', 'アイデア:') !!}
         　　{!! Form::textarea('content', $idea->content, ['class' => 'form-control', 'rows' => 5, 'placeholder'=>"課題を解決するためのアイデアをご記入ください。"]) !!}
             </div>
             <div style="margin-top:10px">

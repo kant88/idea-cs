@@ -28,23 +28,24 @@ class WelcomeController extends Controller
     
      public function confirmName(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|',
+        ]);
+        
         //入力をセッションに保存する。
         if($request->has('name')){
             $name = $request->name;
             Session::put('name', $name);
         }
         
-        
         $idea = new Idea();
-        
+    
         if(Session::has('problem')){
             $idea->problem = Session::get('problem');
         } 
-        
         if(Session::has('content')){
             $idea->content = Session::get('content');
         }
-        
         return view('ideas.create', [
                 'idea' => $idea,
         ]);
