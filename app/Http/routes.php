@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
+Route::post('confirmName', 'WelcomeController@confirmName') -> name('confirmName');
+Route::post('confirmIdea', 'WelcomeController@confirmIdea') -> name('confirmIdea');
 
 Route::resource('ideas', 'IdeasController');
+

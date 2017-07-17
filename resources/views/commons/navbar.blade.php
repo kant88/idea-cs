@@ -10,12 +10,13 @@
                 </button>
                 <a class="navbar-brand" href="/">Idea-CS</a>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <!-- ログイン機能はとりあえず保留
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Signup</a></li>
                     <li><a href="#">Login</a></li>
                 </ul>
-            </div>
+            </div>    -->
         </div>
     </nav>
 </header>

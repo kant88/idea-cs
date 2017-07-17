@@ -7,13 +7,22 @@
         </div>
     </div>
     <div class="text-center" class="row">
-        <form>
-        <label class="col-offset-2-md-4 control-label">クラウドワークスでの表示名(必須)</label>
-        <input type="text" class="col-md-3-offset-2" class="form-control">
-        </form>
+        {!! Form::model($idea, ['route' => 'confirmName']) !!}
+            <div class="form-group">
+                {!! Form::label('name', '名前') !!}
+                {!! Form::text('name', null, ['class' => 'form-control', 'class' => 'required', 'class' => "col-offset-4-md-4-offset-4"]) !!}
+            </div>
+             {!! Form::submit('アイデア投稿用のページへ', ['class' => 'btn btn-primary']) !!}
+        {!! Form::close() !!}
     </div>
+@endsection
+<!--    
+    <div class="text-center", style="margin-top:20px">
+        {!! link_to_route('ideas.create', 'アイデア投稿用のページへ', null,  ['class'=>"btn btn-primary"]) !!}
+    </div>
+
+    
     <div>
-        <br>
         <p><u>事前アンケート</u></p>
         <p>1. 次のなかから関心のある・・・</p>
         <input type="radio" name="check" value="check1">check1　
@@ -21,9 +30,4 @@
         <input type="radio" name="check" value="check3">check3　
         <input type="radio" name="check" value="check4" checked >未回答
     </div>
-    <br>
-    <div class="text-center">
-        {!! link_to_route('ideas.create', 'アイデア投稿用のページへ', null,  ['class'=>"btn btn-primary"]) !!}
-
-    </div>
-@endsection
+-->    

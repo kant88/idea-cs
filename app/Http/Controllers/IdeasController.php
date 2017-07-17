@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Idea;       //追加
+use Session;
+use Redirect;
 
 class IdeasController extends Controller
 {
@@ -18,7 +20,7 @@ class IdeasController extends Controller
      */
     public function index()
     {
-        //
+      //
     }
 
     /**
@@ -27,9 +29,10 @@ class IdeasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $idea = new Idea;
-
+    {   
+        Session::forget('problem');
+        Session::forget('content');
+        $idea = new Idea();
         return view('ideas.create', [
             'idea' => $idea,
         ]);
@@ -42,20 +45,30 @@ class IdeasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $idea = new Idea;
-        $idea->content = $request->content;
+    {   
+        $idea = new Idea();
+        $idea->name = Session::get('name');
+        $idea->problem = Session::get('problem');
+        $idea->content = Session::get('content');
+                
         $idea->save();
-
-        return redirect('/');
+        Session::flush();
+        return view('thankyou');
     }
-
+    
+    
+            
+       //       if(!($request->has('secret'))) {
+       //     print 1;
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+     
+   
+     
     public function show($id)
     {
         //
