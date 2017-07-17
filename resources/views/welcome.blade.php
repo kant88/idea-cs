@@ -7,13 +7,16 @@
         </div>
     </div>
     <div class="text-center" class="row">
+        <div class="col-md-offset-3 col-md-6 col-md-offset-3">
         {!! Form::model($idea, ['route' => 'confirmName']) !!}
             <div class="form-group">
                 {!! Form::label('name', '名前') !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'class' => 'required', 'class' => "col-offset-4-md-4-offset-4"]) !!}
+                {!! Form::text('name', null, ['class' => 'form-control', 'class' => 'required']) !!}
             </div>
-             {!! Form::submit('アイデア投稿用のページへ', ['class' => 'btn btn-primary']) !!}
+            
+             {!! Form::submit('アイデア投稿用のページへ', ['class' => 'btn btn-primary', 'style'=>'margin-top:10px']) !!}
         {!! Form::close() !!}
+        </div>
     </div>
 @endsection
 <!--    
