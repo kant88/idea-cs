@@ -17,8 +17,8 @@ class CreateIdeasTable extends Migration
             $table->string('name', 50);   // name　カラム追加
             $table->string('problem');    // problem カラム追加
             $table->string('content');    // content カラム追加
-            $table->string('pcategory');    // pcategory カラム追加
-            $table->string('ccategory');    // ccategory カラム追加
+            $table->string('pcategory')->nullable();    // pcategory カラム追加
+            $table->string('ccategory')->nullable();    // ccategory カラム追加
             $table->timestamps();
         });
     }
