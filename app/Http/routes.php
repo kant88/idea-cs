@@ -12,8 +12,13 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-Route::post('confirmName', 'WelcomeController@confirmName') -> name('confirmName');
-Route::post('confirmIdea', 'WelcomeController@confirmIdea') -> name('confirmIdea');
-
+Route::get('confirmName', 'WelcomeController@confirmNameget');
+Route::post('confirmName/{id}', 'WelcomeController@confirmNamepost') -> name('confirmNamepost');
+Route::get('confirmIdea', 'WelcomeController@confirmIdeaget');
+Route::post('confirmIdea/{id}', 'WelcomeController@confirmIdeapost') -> name('confirmIdeapost');
+Route::get('thankyou', function(){
+    return view('thankyou');
+});
+//storeのみ使用
 Route::resource('ideas', 'IdeasController');
 

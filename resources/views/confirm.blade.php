@@ -14,7 +14,7 @@
 {!! Form::close() !!}
 </div>
 <div style="margin-top:10px">
-{!! Form::model($idea, ['route' => 'confirmName']) !!}
+{!! Form::model($idea, ['route' => 'confirmNamepost']) !!}
     {!! Form::submit('訂正する', ['class' => 'btn btn-warning']) !!}
 {!! Form::close() !!}
 </div>

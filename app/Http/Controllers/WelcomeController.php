@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
-
 use App\Idea;
 use Session;
-use Redirect;
 
 class WelcomeController extends Controller
 {
@@ -18,61 +16,50 @@ class WelcomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     
     public function index()
     {   
         $idea = new Idea();
+        $idea->name = Session::get('name');
         return view('welcome', [
             'idea' => $idea,
         ]);
     }
     
-     public function confirmName(Request $request)
+     
+    public function confirmNamepost(Request $request)
     {
         if(!(Session::has('name'))){
             $this->validate($request, [
-               'name' => 'required',
+              'name' => 'required',
         ]);
         }
-        
         //入力をセッションに保存する。
         if($request->has('name')){
             $name = $request->name;
             Session::put('name', $name);
         }
+    
+        return redirect()->action('WelcomeController@confirmNameget');
+    }
+        
+        
+    public function confirmNameget() {
         
         $idea = new Idea();
-    
-        if(Session::has('problem')){
-            $idea->problem = Session::get('problem');
-        } 
-        if(Session::has('content')){
-            $idea->content = Session::get('content');
-        }
+        $idea->problem = Session::get('problem');
+        $idea->content = Session::get('content');
         return view('ideas.create', [
-                'idea' => $idea,
+            'idea' => $idea,
         ]);
     }
-        
-    /**     if (Session::has('name') && Session::has('problem') && Session::has('content')) {
-            //全項目入力されてる場合
-            $idea = new Idea();
-            $idea->name = Session::get('name');
-            $idea->problem = Session::get('problem');
-            $idea->content = Session::get('content');
-            return view('confirm', [
-                'idea' => $idea,
-                ]);
-        } else {
-            //名前だけを入力した場合とか
-            $idea = new Idea();
-            return view('ideas.create', [
-                'idea' => $idea,
-            ]);
-        }
-    }
-    */
-    public function confirmIdea(Request $request) 
+    
+    public function confirmIdeapost(Request $request) 
     {
+        $this->validate($request, [
+              'problem' => 'required|min:40|max:1000',
+              'content' => 'required|min:40|max:1000',
+        ]);
       
         if($request->has('problem') && $request->has('content')){
             $problem = $request->problem;
@@ -81,20 +68,27 @@ class WelcomeController extends Controller
             Session::put('content', $content);
         }
         
+        return redirect()->action('WelcomeController@confirmIdeaget');
+    }
+    
+    public function confirmIdeaget() 
+    {
         $idea = new Idea();
         $idea->name = Session::get('name');
         $idea->problem = Session::get('problem');
         $idea->content = Session::get('content');
+        
         return view('confirm', [
-                'idea' => $idea,
+            'idea' => $idea,
         ]);
-    }
+    }  
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+     
     public function create()
     {
         //
@@ -106,6 +100,7 @@ class WelcomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+     
     public function store(Request $request)
     {
         //
@@ -117,6 +112,7 @@ class WelcomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+     
     public function show($id)
     {
         //
@@ -140,6 +136,7 @@ class WelcomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+     
     public function update(Request $request, $id)
     {
         //
@@ -151,6 +148,7 @@ class WelcomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+     
     public function destroy($id)
     {
         //

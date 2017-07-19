@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Idea;       //追加
 use Session;
-use Redirect;
+
 
 class IdeasController extends Controller
 {
@@ -30,14 +30,15 @@ class IdeasController extends Controller
      */
     public function create()
     {   
-        Session::forget('problem');
+    /**    Session::forget('problem');
         Session::forget('content');
         $idea = new Idea();
         return view('ideas.create', [
             'idea' => $idea,
         ]);
+    */
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -53,7 +54,7 @@ class IdeasController extends Controller
                 
         $idea->save();
         Session::flush();
-        return view('thankyou');
+        return redirect('thankyou');
     }
     
     
