@@ -73,7 +73,7 @@ class WelcomeController extends Controller
     */
     public function confirmIdea(Request $request) 
     {
-        
+      
         if($request->has('problem') && $request->has('content')){
             $problem = $request->problem;
             $content = $request->content;

@@ -8,7 +8,7 @@
         <div style="line-height:2.5;">
             <div class="form-group">
             {!! Form::label('problem', '課題:') !!}
-    　　      {!! Form::textarea('problem', $idea->problem, ['class' => 'form-control', 'rows' => 5, 'placeholder'=>"食に関してあなたが感じる課題をご記入ください。"]) !!}
+    　　      {!! Form::textarea('problem', $idea->problem, ['class' => 'form-control', 'rows' => 5, 'placeholder'=>"あなたが感じる、あなたの職場の問題点はなんでしょうか。"]) !!}
             </div>
             <div class="form-group">
             {!! Form::label('content', 'アイデア:') !!}
