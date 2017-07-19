@@ -10,7 +10,7 @@
         <div class="col-md-offset-3 col-md-6 col-md-offset-3">
         {!! Form::model($idea, ['route' => 'confirmName']) !!}
             <div class="form-group">
-                {!! Form::label('name', '名前(必須)') !!}
+                {!! Form::label('name', 'クラウドワークス名') !!}
                 {!! Form::text('name', null, ['class' => 'form-control', 'class' => 'required']) !!}
             </div>
             
