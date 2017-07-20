@@ -57,8 +57,8 @@ class WelcomeController extends Controller
     public function confirmIdeapost(Request $request) 
     {
         $this->validate($request, [
-              'problem' => 'required|min:40|max:1000',
-              'content' => 'required|min:40|max:1000',
+              'problem' => 'required|min:50|max:1000',
+              'content' => 'required|min:50|max:1000',
         ]);
       
         if($request->has('problem') && $request->has('content')){
