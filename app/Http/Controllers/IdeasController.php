@@ -10,7 +10,6 @@ use App\Http\Controllers\Controller;
 use App\Idea;       //追加
 use Session;
 
-
 class IdeasController extends Controller
 {
     /**
@@ -20,7 +19,11 @@ class IdeasController extends Controller
      */
     public function index()
     {
-      //
+        $ideas = Idea::where('created_at', '>=', '2017-07-21')->get();
+
+        return view('ideas.index', [
+            'ideas' => $ideas,
+        ]);
     }
 
     /**
