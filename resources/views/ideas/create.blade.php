@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<!--
 <div class="container-fluid">
     
     <div class="row">
@@ -15,7 +15,7 @@
         </div>
         
         <div class="col-xs-10">
-        
+-->
         <h1>アイデア新規作成ページ</h1>
         
         {!! Form::model($idea, ['route' => 'confirmIdeapost']) !!}
@@ -36,6 +36,8 @@
             </div>
         {!! Form::close() !!}
         </div>
+<!--
     </div>
 </div>
+-->
 @endsection
