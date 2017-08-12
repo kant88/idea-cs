@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<!--
+
+
 <div class="container-fluid">
     
     <div class="row">
+        <!--
         <div class="col-xs-2">
             <ul class="nav nav-pills nav-stacked">
                 <li>{!! link_to_route('ideas.index', 'アイデア一覧') !!}</li>
@@ -15,8 +17,10 @@
         </div>
         
         <div class="col-xs-10">
--->
+        -->
+        
         <h1>アイデア新規作成ページ</h1>
+        <h4>-{{$pcat}}-</h4>
         
         {!! Form::model($idea, ['route' => 'confirmIdeapost']) !!}
             <div class="row">
@@ -35,7 +39,47 @@
                 </div>
             </div>
         {!! Form::close() !!}
-        </div>
+    </div>
+    
+    <h3 style="margin-top:50px;">過去のアイデア例</h3>
+    <!--
+    <div class="tabs-menu" style="margin-top:40px;">
+      <div id="tab-menu-a">アイデア1</div>
+      <div id="tab-menu-b">アイデア2</div>
+      <div id="tab-menu-c">アイデア3</div>
+    </div>
+    <div class="tabs-content" style="margin-bottom:50px;">
+      <div id="tabs-a">
+        <table class="table table-striped table-bordered" style="table-layout: fixed;">
+            <tr><th style="width:5%;">id</th><th style="width:45%;">課題</th><th style="width:45%;">アイデア</th></tr>
+            <tr><td>{{$ideas[0]->id}}</td><td>{{$ideas[0]->problem}}</td><td>{{$ideas[0]->content}}</td></tr>
+        </table>
+      </div>
+      <div id="tabs-b">
+        <table class="table table-striped table-bordered" style="table-layout: fixed;">
+            <tr><th style="width:5%;">id</th><th style="width:45%;">課題</th><th style="width:45%;">アイデア</th></tr>
+            <tr><td>{{$ideas[1]->id}}</td><td>{{$ideas[1]->problem}}</td><td>{{$ideas[1]->content}}</td></tr>
+        </table>
+      </div>
+      <div id="tabs-c">
+        <table class="table table-striped table-bordered" style="table-layout: fixed;">
+            <tr><th style="width:5%;">id</th><th style="width:45%;">課題</th><th style="width:45%;">アイデア</th></tr>
+            <tr><td>{{$ideas[2]->id}}</td><td>{{$ideas[2]->problem}}</td><td>{{$ideas[2]->content}}</td></tr>
+        </table>
+      </div>
+    </div>
+    -->
+    @if (count($ideas) > 0)
+        @foreach ($ideas as $idea)
+        <table class="table table-striped table-bordered" style="table-layout: fixed;">
+            <tr><th style="width:5%;">id</th><th style="width:45%;">課題</th><th style="width:45%;">アイデア</th></tr>
+            <tr><td>{{$idea->id}}</td><td>{{$idea->problem}}</td><td>{{$idea->content}}</td></tr>
+        </table>
+        @endforeach
+    @endif
+    
+    <script src="{{asset('/js/tab.js')}}"></script>
+    <link rel="stylesheet" href="{{ asset('/css/tab.css') }}">
 <!--
     </div>
 </div>

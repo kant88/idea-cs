@@ -19,7 +19,8 @@ class IdeasController extends Controller
      */
     public function index()
     {
-        $ideas = Idea::where('created_at', '>=', '2017-07-21')->get();
+        $ideas = Idea::where('p_cat', '>=', 3)
+                     ->where('originallity', '>=', 3)->take(3)->get();
 
         return view('ideas.index', [
             'ideas' => $ideas,

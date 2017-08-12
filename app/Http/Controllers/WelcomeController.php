@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Model;
+
 use App\Idea;
 use Session;
 
@@ -39,6 +41,9 @@ class WelcomeController extends Controller
             $name = $request->name;
             Session::put('name', $name);
         }
+        
+        $select_pcat = $request->select_pcat;
+        Session::put('select_pcat', $select_pcat);
     
         return redirect()->action('WelcomeController@confirmNameget');
     }
@@ -49,9 +54,53 @@ class WelcomeController extends Controller
         $idea = new Idea();
         $idea->problem = Session::get('problem');
         $idea->content = Session::get('content');
+        $idea->select_pcat = Session::get('select_pcat');
+        //$categoryname = categoryName($idea->select_pcat);
+        $ideas = Idea::where('originallity', '>=', 2)
+                     ->where('pcat1', '=', $idea->select_pcat)
+                     ->orWhere('pcat2', '=', $idea->select_pcat)
+                     ->orWhere('pcat3', '=', $idea->select_pcat)
+                     ->orderBy('originallity', 'desc')
+                     ->take(3)
+                     ->get();
+        switch ($idea->select_pcat) {
+            case 3 :
+                $pcat ="人間関係の不和";
+                break;
+            case 4 :
+                $pcat ="不平等感、不信感";
+                break;
+            case 5 :
+                $pcat ="コミュニケーション";
+                break;
+            case 6 :
+                $pcat ="職場の雰囲気 ";
+                break;
+            case 7 :
+                $pcat ="ハラスメント";
+                break;
+            case 8 :
+                $pcat ="制度の整備が不十分";
+                break;
+            case 9 :
+                $pcat ="人材の確保、育成";
+                break;
+            case 10 :
+                $pcat ="非効率的な体制・慣習";
+                break;
+            case 11 :
+                $pcat ="過大な負担";
+                break;
+            case 12 :
+                $pcat ="周囲の環境";
+                break;
+        }
+        
+        
         return view('ideas.create', [
-            'idea' => $idea,
-        ]);
+            'idea' => $idea, 
+            'ideas' => $ideas,
+        ])->with('pcat', $pcat);
     }
     
     public function confirmIdeapost(Request $request) 
@@ -153,4 +202,41 @@ class WelcomeController extends Controller
     {
         //
     }
+    
+    /**
+    public function categoryName($num) {
+        switch ($num) {
+            case 3 :
+                $pcat ="人間関係の不和";
+                break;
+            case 4 :
+                $pcat ="不平等感、不信感";
+                break;
+            case 5 :
+                $pcat ="コミュニケーション";
+                break;
+            case 6 :
+                $pcat ="職場の雰囲気 ";
+                break;
+            case 7 :
+                $pcat ="ハラスメント";
+                break;
+            case 8 :
+                $pcat ="制度の整備が不十分";
+                break;
+            case 9 :
+                $pcat ="人材の確保、育成";
+                break;
+            case 10 :
+                $pcat ="非効率的な体制・慣習";
+                break;
+            case 11 :
+                $pcat ="過大な負担";
+                break;
+            case 12 :
+                $pcat ="周囲の環境";
+                break;
+        }
+    }
+    */
 }
