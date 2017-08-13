@@ -14,7 +14,7 @@ class CreateIdeasTable extends Migration
     {
         Schema::create('ideas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 50);   // name　カラム追加
+            $table->string('name', 50)->nullable();   // name　カラム追加
             $table->string('problem');    // problem カラム追加
             $table->string('content');    // content カラム追加
             $table->integer('originallity')->nullable();
@@ -30,7 +30,7 @@ class CreateIdeasTable extends Migration
             $table->integer('no1')->nullable();    // ccategory カラム追加
             $table->integer('no2')->nullable();
             $table->integer('no3')->nullable();
-            $table->timestamps();
+            $table->timestamps()->nullable();
         });
     }
 
