@@ -4,8 +4,8 @@
     
 <h1>確認ページ</h1>
 <div style="margin-top:20px">
-<p>問題点：{{$idea->problem}}</p>
-<p>アイデア：{{$idea->content}}</p>
+<h4>問題点：{{$idea->problem}}</h4>
+<h4>アイデア：{{$idea->content}}</h4>
 </div>
 
 <div style="margin-top:20px">
