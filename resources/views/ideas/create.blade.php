@@ -18,11 +18,342 @@
         
         <div class="col-xs-10">
         -->
-        
+    <!--    ["{$whats[0]}","{$whats[1]}","{$whats[2]}","{$whats[3]}","{$whats[4]}"] -->
         <h1>アイデア新規作成ページ</h1>
         <h4>-{{$pcat}}-</h4>
         
         {!! Form::model($idea, ['route' => 'confirmIdeapost']) !!}
+            <div class="form-group" style= margin-top:40px;>
+                {!! Form::label('select_what', 'アイデアのヒント') !!}
+                {!! Form::select('select_what', array_values($whats) , null, ['class' => 'form-control', 'multiple' => 'multiple', 'onchange'=>"selectwhats(this);", 'id'=>'question1']) !!}
+            </div>
+            
+            <div id="hintSpace" style= margin-top:30px;>
+                <h5>課題が「{{$pcat}}」で、「<ins id="question"></ins>」に関するアイデアによくある質問</h5>
+            @for ($i = 0; $i < count($whats); $i++)
+                @if ($idea->select_pcat == 3)
+                    <div id = "whats0">
+                    <ul>
+                        <li>どうして</li>
+                        <li>だれを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats1">
+                    <ul>
+                        <li>どして</li>
+                        <li>れを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats2">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats3">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats4">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                @endif
+                @if ($idea->select_pcat == 4)
+                <div id = "whats0">
+                    <ul>
+                        <li>どうして</li>
+                        <li>だれを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats1">
+                    <ul>
+                        <li>どして</li>
+                        <li>れを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats2">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats3">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats4">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                @endif
+                @if ($idea->select_pcat == 5)
+                <div id = "whats0">
+                    <ul>
+                        <li>どうして</li>
+                        <li>だれを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats1">
+                    <ul>
+                        <li>どして</li>
+                        <li>れを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats2">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats3">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats4">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                @endif
+                @if ($idea->select_pcat == 6)
+                <div id = "whats0">
+                    <ul>
+                        <li>どうして</li>
+                        <li>だれを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats1">
+                    <ul>
+                        <li>どして</li>
+                        <li>れを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats2">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats3">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats4">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                @endif
+                @if ($idea->select_pcat == 7)
+                <div id = "whats0">
+                    <ul>
+                        <li>どうして</li>
+                        <li>だれを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats1">
+                    <ul>
+                        <li>どして</li>
+                        <li>れを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats2">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats3">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats4">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                @endif
+                @if ($idea->select_pcat == 8)
+                <div id = "whats0">
+                    <ul>
+                        <li>どうして</li>
+                        <li>だれを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats1">
+                    <ul>
+                        <li>どして</li>
+                        <li>れを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats2">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats3">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats4">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                @endif
+                @if ($idea->select_pcat == 9)
+                <div id = "whats0">
+                    <ul>
+                        <li>どうして</li>
+                        <li>だれを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats1">
+                    <ul>
+                        <li>どして</li>
+                        <li>れを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats2">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats3">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats4">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                @endif
+                @if ($idea->select_pcat == 10)
+                <div id = "whats0">
+                    <ul>
+                        <li>どうして</li>
+                        <li>だれを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats1">
+                    <ul>
+                        <li>どして</li>
+                        <li>れを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats2">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats3">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats4">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                @endif
+                @if ($idea->select_pcat == 11)
+                <div id = "whats0">
+                    <ul>
+                        <li>どうして</li>
+                        <li>だれを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats1">
+                    <ul>
+                        <li>どして</li>
+                        <li>れを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats2">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats3">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats4">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                @endif
+                @if ($idea->select_pcat == 12)
+                <div id = "whats0">
+                    <ul>
+                        <li>どうして</li>
+                        <li>だれを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats1">
+                    <ul>
+                        <li>どして</li>
+                        <li>れを</li>
+                    </ul>
+                    </div>
+                    <div id = "whats2">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats3">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                    <div id = "whats4">
+                    <ul>
+                        <li>どうし</li>
+                        <li>だれ</li>
+                    </ul>
+                    </div>
+                @endif
+            @endfor
+            </div>
+            
             <div class="row">
                 <div class="col-md-offset-1 col-md-10 col-md-offset-1" style="line-height:2.5;">
                     <div class="form-group" style="margin-top:10px">
@@ -78,7 +409,7 @@
         @endforeach
     @endif
     
-    <script src="{{asset('/js/tab.js')}}"></script>
+    <script src="{{asset('/js/question.js')}}"></script>
     <link rel="stylesheet" href="{{ asset('/css/tab.css') }}">
 <!--
     </div>

@@ -26,7 +26,7 @@
                 <ul style="list-style-type: none;">
                 <li>
                     {!! Form::radio('select_pcat', 3, ['class' => 'form-control']) !!}
-                    {!! Form::label('select_pcat', '人間関係の不和') !!}
+                    {!! Form::label('select_pcat', '職場の雰囲気') !!}
                 </li>
                 <li>
                     {!! Form::radio('select_pcat', 4, ['class' => 'form-control']) !!}
@@ -38,33 +38,29 @@
                 </li>
                 <li>
                     {!! Form::radio('select_pcat', 6, ['class' => 'form-control']) !!}
-                    {!! Form::label('select_pcat', '職場の雰囲気') !!}
-                </li>
-                <li>
-                    {!! Form::radio('select_pcat', 7, ['class' => 'form-control']) !!}
                     {!! Form::label('select_pcat', 'ハラスメント') !!}
                 </li>
                 </ul>
-                    <h5 class="text-left">組織の制度・文化</h5>
+                <h5 class="text-left">組織の制度・文化</h5>
                 <ul style="list-style-type: none;">
                 <li>
-                    {!! Form::radio('select_pcat', 8, ['class' => 'form-control']) !!}
+                    {!! Form::radio('select_pcat', 7, ['class' => 'form-control']) !!}
                     {!! Form::label('select_pcat', '制度の整備が不十分') !!}
                 </li>
                 <li> 
-                    {!! Form::radio('select_pcat', 9, ['class' => 'form-control' ]) !!}
+                    {!! Form::radio('select_pcat', 8, ['class' => 'form-control' ]) !!}
                     {!! Form::label('select_pcat', '人材の確保、育成') !!}
                 </li>
                 <li>
-                    {!! Form::radio('select_pcat', 10, ['class' => 'form-control']) !!}
+                    {!! Form::radio('select_pcat', 9, ['class' => 'form-control']) !!}
                     {!! Form::label('select_pcat', '非効率的な体制・慣習') !!}
                 </li>
                 <li>
-                    {!! Form::radio('select_pcat', 11, ['class' => 'form-control' ]) !!}
+                    {!! Form::radio('select_pcat', 10, ['class' => 'form-control' ]) !!}
                     {!! Form::label('select_pcat', '過大な負担') !!}
                 </li>
                 <li>
-                    {!! Form::radio('select_pcat', 12,  ['class' => 'form-control']) !!}
+                    {!! Form::radio('select_pcat', 11,  ['class' => 'form-control']) !!}
                     {!! Form::label('select_pcat', '周囲の環境') !!}
                 </li>
                 </ul>

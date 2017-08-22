@@ -65,42 +65,49 @@ class WelcomeController extends Controller
                      ->get();
         switch ($idea->select_pcat) {
             case 3 :
-                $pcat ="人間関係の不和";
+                $pcat ="職場の雰囲気";
+                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
                 break;
             case 4 :
                 $pcat ="不平等感、不信感";
+                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
                 break;
             case 5 :
                 $pcat ="コミュニケーション";
+                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
                 break;
             case 6 :
-                $pcat ="職場の雰囲気 ";
+                $pcat ="ハラスメント";
+                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
                 break;
             case 7 :
-                $pcat ="ハラスメント";
+                $pcat ="制度の整備が不十分";
+                $whats = ["制度の導入","制度の廃止","制度の改善","その他"];
                 break;
             case 8 :
-                $pcat ="制度の整備が不十分";
+                $pcat ="人材の確保、育成";
+                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
                 break;
             case 9 :
-                $pcat ="人材の確保、育成";
+                $pcat ="非効率的な体制・慣習";
+                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
                 break;
             case 10 :
-                $pcat ="非効率的な体制・慣習";
+                $pcat ="過大な負担";
+                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
                 break;
             case 11 :
-                $pcat ="過大な負担";
-                break;
-            case 12 :
                 $pcat ="周囲の環境";
+                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
                 break;
         }
         
         
-        return view('ideas.create', [
+/*        return view('ideas.create', [
             'idea' => $idea, 
             'ideas' => $ideas,
-        ])->with('pcat', $pcat);
+        ])->with('pcat', $pcat);    */
+        return view('ideas.create', compact('idea','ideas','pcat','whats')); 
     }
     
     public function confirmIdeapost(Request $request) 
