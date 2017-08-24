@@ -46,3 +46,7 @@ body {
 .tabs-content div {
     display: none;
 }
+
+li {
+    font-size: 140%;
+}

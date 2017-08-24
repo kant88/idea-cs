@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-Route::get('confirmName', 'WelcomeController@confirmNameget');
+Route::get('confirmName', 'WelcomeController@confirmNameget')-> name('confirmNameget');;
 Route::post('confirmName/{id}', 'WelcomeController@confirmNamepost') -> name('confirmNamepost');
 Route::get('confirmIdea', 'WelcomeController@confirmIdeaget');
 Route::post('confirmIdea/{id}', 'WelcomeController@confirmIdeapost') -> name('confirmIdeapost');

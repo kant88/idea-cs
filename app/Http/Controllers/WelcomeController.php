@@ -55,59 +55,47 @@ class WelcomeController extends Controller
         $idea->problem = Session::get('problem');
         $idea->content = Session::get('content');
         $idea->select_pcat = Session::get('select_pcat');
-        //$categoryname = categoryName($idea->select_pcat);
-        $ideas = Idea::where('originallity', '>=', 2)
-                     ->where('pcat1', '=', $idea->select_pcat)
-                     ->orWhere('pcat2', '=', $idea->select_pcat)
-                     ->orWhere('pcat3', '=', $idea->select_pcat)
-                     ->orderBy('originallity', 'desc')
-                     ->take(3)
-                     ->get();
+        
         switch ($idea->select_pcat) {
             case 3 :
                 $pcat ="職場の雰囲気";
-                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
+                $whats = ["ルール作りや習慣化","コミュニケーションや情報の見える化","人材の教育・訓練","人材の配置","その他"];
                 break;
             case 4 :
                 $pcat ="不平等感、不信感";
-                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
+                $whats = ["ルール作りや習慣化","コミュニケーションや情報の見える化","人材の教育・訓練","人材の配置","その他"];
                 break;
             case 5 :
                 $pcat ="コミュニケーション";
-                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
+                $whats = ["ルール作りや習慣化","コミュニケーションや情報の見える化","人材の教育・訓練","人材の配置","その他"];
                 break;
             case 6 :
                 $pcat ="ハラスメント";
-                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
+                $whats = ["ルール作りや習慣化","コミュニケーションや情報の見える化","人材の教育・訓練","人材の配置","その他"];
                 break;
             case 7 :
                 $pcat ="制度の整備が不十分";
-                $whats = ["制度の導入","制度の廃止","制度の改善","その他"];
+                $whats = ["制度の導入","制度の廃止","ツールの導入・効率化","人材の育成・活用","その他"];
                 break;
             case 8 :
                 $pcat ="人材の確保、育成";
-                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
+                $whats = ["制度の導入","制度の廃止","ツールの導入・効率化","人材の育成・活用","その他"];
                 break;
             case 9 :
                 $pcat ="非効率的な体制・慣習";
-                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
+                $whats = ["制度の導入","制度の廃止","ツールの導入・効率化","人材の育成・活用","その他"];
                 break;
             case 10 :
                 $pcat ="過大な負担";
-                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
+                $whats = ["制度の導入","制度の廃止","ツールの導入・効率化","人材の育成・活用","その他"];
                 break;
             case 11 :
                 $pcat ="周囲の環境";
-                $whats = ["雰囲気や気分をよくする工夫","コミュニケーションや情報の見える化","教育訓練","人材の配置","その他"];
+                $whats = ["制度の導入","制度の廃止","ツールの導入・効率化","人材の育成・活用","その他"];
                 break;
         }
-        
-        
-/*        return view('ideas.create', [
-            'idea' => $idea, 
-            'ideas' => $ideas,
-        ])->with('pcat', $pcat);    */
-        return view('ideas.create', compact('idea','ideas','pcat','whats')); 
+        Session::put('pcat', $pcat);
+        return view('ideas.create', compact('idea','ideas','whats'))->with('pcat', $pcat); 
     }
     
     public function confirmIdeapost(Request $request) 
@@ -115,13 +103,16 @@ class WelcomeController extends Controller
         $this->validate($request, [
               'problem' => 'required|min:30|max:1000',
               'content' => 'required|min:30|max:1000',
+              'select_what' => 'required',
         ]);
       
         if($request->has('problem') && $request->has('content')){
             $problem = $request->problem;
             $content = $request->content;
+            $select_what = $request->select_what;
             Session::put('problem', $problem);
             Session::put('content', $content);
+            Session::put('select_what', $select_what);
         }
         
         return redirect()->action('WelcomeController@confirmIdeaget');
@@ -133,6 +124,7 @@ class WelcomeController extends Controller
         $idea->name = Session::get('name');
         $idea->problem = Session::get('problem');
         $idea->content = Session::get('content');
+        $idea->select_what = Session::get('select_what');
         
         return view('confirm', [
             'idea' => $idea,
@@ -209,41 +201,4 @@ class WelcomeController extends Controller
     {
         //
     }
-    
-    /**
-    public function categoryName($num) {
-        switch ($num) {
-            case 3 :
-                $pcat ="人間関係の不和";
-                break;
-            case 4 :
-                $pcat ="不平等感、不信感";
-                break;
-            case 5 :
-                $pcat ="コミュニケーション";
-                break;
-            case 6 :
-                $pcat ="職場の雰囲気 ";
-                break;
-            case 7 :
-                $pcat ="ハラスメント";
-                break;
-            case 8 :
-                $pcat ="制度の整備が不十分";
-                break;
-            case 9 :
-                $pcat ="人材の確保、育成";
-                break;
-            case 10 :
-                $pcat ="非効率的な体制・慣習";
-                break;
-            case 11 :
-                $pcat ="過大な負担";
-                break;
-            case 12 :
-                $pcat ="周囲の環境";
-                break;
-        }
-    }
-    */
 }

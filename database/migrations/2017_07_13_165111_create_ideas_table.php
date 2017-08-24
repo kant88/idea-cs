@@ -27,10 +27,11 @@ class CreateIdeasTable extends Migration
             $table->integer('ccat2')->nullable();
             $table->integer('ccat3')->nullable();
             $table->integer('select_pcat')->nullable();
+            $table->integer('select_what')->nullable();
             $table->integer('no1')->nullable();    // ccategory カラム追加
             $table->integer('no2')->nullable();
             $table->integer('no3')->nullable();
-            $table->timestamps()->nullable();
+            $table->timestamps();
         });
     }
 

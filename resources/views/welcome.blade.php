@@ -19,8 +19,8 @@
                 {!! Form::label('name', 'クラウドワークス名') !!}
                 {!! Form::text('name', null, ['class' => 'form-control', 'class' => 'required']) !!}
             </div>
-        <div style="background-color:rgba(171,255,127,0.4);">
-            <h4 class="text-left" style="margin-top:40px; margin-bottom:30px;">　あなたの職場の問題点は、次のうちのどれに最もよく当てはまりますか？<br>　直感的に1つを選択して次のページにお進みください。</h4>
+        <div class="col-md-12" style="background-color:rgba(171,255,127,0.4);">
+            <h4 class="text-left" style="margin-top:40px; margin-bottom:30px;">　あなたの職場の問題点は、次の9つの項目のうち、どれに最もよく当てはまりますか？<br>　直感的に1つを選択して次のページにお進みください。</h4>
             <div class="form-group text-left" style="margin-bottom:30px;">
                 <h5 class="text-left">人間関係</h5>
                 <ul style="list-style-type: none;">

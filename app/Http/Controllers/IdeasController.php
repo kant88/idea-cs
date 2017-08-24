@@ -56,6 +56,7 @@ class IdeasController extends Controller
         $idea->problem = Session::get('problem');
         $idea->content = Session::get('content');
         $idea->select_pcat = Session::get('select_pcat');
+        $idea->select_what = Session::get('select_what');
                 
         $idea->save();
         Session::flush();

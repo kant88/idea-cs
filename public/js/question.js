@@ -1,6 +1,7 @@
 /* global $*/
 
 function showContent(selected) {
+    $("#hintSpace").show();
     $("#hintSpace div").hide();
     $("#"+selected).show();
 }
@@ -18,7 +19,7 @@ function q_content(key){
 
 $(document).ready(function() {
     
-   $("#hintSpace div").hide();
+   $("#hintSpace").hide();
 });
 
 function selectwhats(obj) {

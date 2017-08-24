@@ -14,9 +14,12 @@
 {!! Form::close() !!}
 </div>
 <div style="margin-top:10px">
+{!! link_to_route('confirmNameget', '訂正する', null, ['class' => 'btn btn-warning']) !!}
+<!--
 {!! Form::model($idea, ['route' => 'confirmNamepost']) !!}
     {!! Form::submit('訂正する', ['class' => 'btn btn-warning']) !!}
 {!! Form::close() !!}
+-->
 </div>
 
 @endsection
