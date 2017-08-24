@@ -11,8 +11,8 @@
        
         {!! Form::model($idea, ['route' => 'confirmIdeapost']) !!}
         <div class="form-group" style= margin-top:40px;>
-            {!! Form::label('select_what', '次のうち、あなたの考えているアイデアに最も近いものを選択してください。') !!}
-            {!! Form::select('select_what', array_values($whats) , null, ['class' => 'form-control', 'multiple' => 'multiple', 'onchange'=>"selectwhats(this);", 'id'=>'question1']) !!}
+            {!! Form::label('select_what', '次のうち、あなたの考えているアイデアのカテゴリーに最も近いもの1つを選択してください。') !!}
+            {!! Form::select('select_what', array_values($whats) , null, ['class' => 'form-control',  'onchange'=>"selectwhats(this);", 'id'=>'question1']) !!}
         </div>
 
         <div class="col-md-offset-1 col-md-10 col-md-offset-1" id="hintSpace" style= margin-top:10px;>
