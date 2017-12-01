@@ -1,7 +1,6 @@
-@extends('layouts.app')
+extends('layouts.app')
 
 @section('content')
-
 
 <div class="container-fluid">
     
@@ -311,12 +310,12 @@
             </div>
         <div class="col-md-offset-1 col-md-10 col-md-offset-1" style="line-height:2.5;">
             <div class="form-group" style="margin-top:10px">
-            {!! Form::label('problem', '課題:') !!}
-            {!! Form::textarea('problem', $idea->problem, ['class' => 'form-control', 'rows' => 5, 'placeholder'=>"あなたが感じる、あなたの職場の問題点はなんでしょうか。"]) !!}
+            {!! Form::label('problem', '問1．あなたが感じる、あなたの職場の問題点はなんでしょうか。') !!}
+            {!! Form::textarea('problem', $idea->problem, ['class' => 'form-control', 'rows' => 5, 'placeholder'=>"職場の問題点"]) !!}
             </div>
             <div class="form-group">
-            {!! Form::label('content', 'アイデア:') !!}
-            {!! Form::textarea('content', $idea->content, ['class' => 'form-control', 'rows' => 5, 'placeholder'=>"課題を解決するためのアイデアをご記入ください。"]) !!}
+            {!! Form::label('content', '問2．課題を解決するためのアイデアをご記入ください。') !!}
+            {!! Form::textarea('content', $idea->content, ['class' => 'form-control', 'rows' => 5, 'placeholder'=>"アイデア"]) !!}
             </div>
         </div>
         
@@ -327,6 +326,15 @@
                 {!! Form::close() !!}
         </div>
     </div>
+    
+    @foreach ($ideas as $idea)
+    <div style="padding-left:1rem; padding-right:1rem;">
+        <table class="table table-striped table-bordered" style="table-layout: fixed;">
+            <tr><th style="width:5%;">id</th><th style="width:45%;">課題</th><th style="width:45%;">アイデア</th></tr>
+            <tr><td>{{$idea->id}}</td><td>{{$idea->problem}}</td><td>{{$idea->content}}</td></tr>
+        </table>
+    </div>
+    @endforeach
     
     <script src="{{asset('/js/question.js')}}"></script>
     <link rel="stylesheet" href="{{ asset('/css/tab.css') }}">

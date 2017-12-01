@@ -55,7 +55,9 @@ class WelcomeController extends Controller
         $idea->problem = Session::get('problem');
         $idea->content = Session::get('content');
         $idea->select_pcat = Session::get('select_pcat');
-        
+        $ideas = Idea::orderByRaw("RAND()")   //RANDOM()はpostgresql向け, RAND()はmysql
+                     ->take(5)
+                     ->get();
         switch ($idea->select_pcat) {
             case 3 :
                 $pcat ="職場の雰囲気";
