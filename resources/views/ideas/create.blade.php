@@ -25,63 +25,7 @@
             {!! Form::close() !!}
     </div>
 </div>
-<!-- yahoo 係り受け解析
-    <div id="result">
-        <h2>解析結果</h2>
-        <table width="622px" cellpadding="5" cellspacing="1"style="float:left" border=solid>
-        <tbody>
-        <?php
-            $appid = env('YAHOO_APPLICATION_ID');
-            function escapestring($str) {
-                return htmlspecialchars($str, ENT_QUOTES);
-            }
-            $sentence = "上司に職員同士の関係や雰囲気を報告、別のチームに配属させるなど対策してもらう。";
-            if ($sentence != "")
-            {
-                echo "<tr>";
-                echo "<td>文節</td>";
-                echo "<td>係り先の文節</td>";
-                echo "</tr>";
-                $request = "http://jlp.yahooapis.jp/DAService/V1/parse?appid=" . $appid . "&sentence=" . urlencode($sentence);
-                $responsexml = simplexml_load_file($request);
-                $size = count($responsexml->Result->ChunkList->Chunk);
-                for ($i= 0; $i < $size; $i++)
-                {
-                    $chunk = $responsexml->Result->ChunkList->Chunk[$i];
-                    $depend_chunk_id = intval($chunk->Dependency);
-                    if ($depend_chunk_id >= 0)
-                    {
-                        $depend_chunk = $responsexml->Result->ChunkList->Chunk[$depend_chunk_id];
-                    }
-                    echo "<tr>";
-                    echo "<td>";
-                    foreach ($chunk->MorphemList->Morphem as $morph)
-                    {
-                        echo escapestring($morph->Surface);
-                    }
-                    echo "</td>";
-                    echo "<td>";
-                    if ($depend_chunk_id < 0)
-                    {
-                        echo "-> 文末";
-                    }
-                    else
-                    {
-                        echo "-> ";
-                        foreach ($depend_chunk->MorphemList->Morphem as $t_morph)
-                        {
-                            echo escapestring($t_morph->Surface);
-                        }
-                    }
-                    echo "</td>";
-                    echo "</tr>";
-                }
-            }
-        ?>
-        </tbody>
-        </table>
-    </div>
--->
+
     <script src="{{asset('/js/question.js')}}"></script>
     <link rel="stylesheet" href="{{ asset('/css/tab.css') }}">
 -
