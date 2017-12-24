@@ -41,9 +41,6 @@ class WelcomeController extends Controller
             $name = $request->name;
             Session::put('name', $name);
         }
-        
-        $select_pcat = $request->select_pcat;
-        Session::put('select_pcat', $select_pcat);
     
         return redirect()->action('WelcomeController@confirmNameget');
     }
@@ -54,10 +51,8 @@ class WelcomeController extends Controller
         $idea = new Idea();
         $idea->problem = Session::get('problem');
         $idea->content = Session::get('content');
-        $ideas = Idea::orderByRaw("RANDOM()")   //RANDOM()はpostgresql向け, RAND()はmysql
-                     ->take(5)
-                     ->get();
-        return view('ideas.create', compact('idea','ideas','whats')); 
+        
+        return view('ideas.create', compact('idea','ideas')); 
     }
     
     public function confirmIdeapost(Request $request) 
@@ -83,7 +78,6 @@ class WelcomeController extends Controller
         $idea->name = Session::get('name');
         $idea->problem = Session::get('problem');
         $idea->content = Session::get('content');
-        $idea->select_what = Session::get('select_what');
         
         return view('confirm', [
             'idea' => $idea,
