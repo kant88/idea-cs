@@ -54,7 +54,7 @@ class WelcomeController extends Controller
         $idea = new Idea();
         $idea->problem = Session::get('problem');
         $idea->content = Session::get('content');
-        $ideas = Idea::orderByRaw("RAND()")   //RANDOM()はpostgresql向け, RAND()はmysql
+        $ideas = Idea::orderByRaw("RANDOM()")   //RANDOM()はpostgresql向け, RAND()はmysql
                      ->take(5)
                      ->get();
         return view('ideas.create', compact('idea','ideas','whats')); 
