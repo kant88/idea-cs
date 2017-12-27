@@ -2,7 +2,7 @@
 
 @section('content')
     
-<h1>確認ページ</h1>
+<h1>質問を受けて改善するためのページ</h1>
 <div style="margin-top:20px">
 <h4>問題点：{{$idea->problem}}</h4>
 <h4>アイデア：{{$idea->content}}</h4>
