@@ -53,6 +53,8 @@ class IdeasController extends Controller
     {   
         $idea = new Idea();
         $idea->name = Session::get('name');
+        $idea->problem2 = $request->problem2;
+        $idea->content2 = $request->content2;
         $idea->problem = Session::get('problem');
         $idea->content = Session::get('content');
         $idea->select_pcat = Session::get('select_pcat');
